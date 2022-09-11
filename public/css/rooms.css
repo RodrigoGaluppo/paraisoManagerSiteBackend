@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+main.room{
+    width: 100%;
+    max-width: 1800px;
+    margin: 30px auto 30px auto;
+}
+
+main.room h1{
+    margin-top: 30px;
+    font-size: 26px;
+    text-align: center;
+}
+
+main.room .options{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+main.room .options h2{
+    width: 100%;
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+main.room .options .option{
+    width: 25%;
+    border: 20px solid rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main.room .options .option img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main.room .options .option p{
+    text-align: justify;
+
+    width: 100%;
+}
+
+
+main.room .options .option .info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+main.room .options .option .info span span{
+    font-size: 13px;
+  
+}
+main.room .options .option .info a{
+
+    text-decoration: none;
+    color: white;
+
+    font-size: 14px;
+
+
+}
+
+
+
+@media screen and (max-width: 780px){
+    main.room .options .option{
+        width: 100%;
+    }
+}

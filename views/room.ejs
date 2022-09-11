@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styledbar.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Hostel Paraiso da Penha</title>
+</head>
+<body>
+    <header>
+        <a href="/" id="logo"> <div class="logo-img" ></div> </a>
+        <nav id="nav" > 
+            <button id="btnMobile" >
+                <span id="hamburguer" ></span>
+            </button>
+            <ul id="menu" >
+                <li><a  href="/#gallery">Home</a></li>
+                <li><a  href="/#about">Sobre</a></li>
+                <li><a href="/#contacts">Contacto</a></li>
+                <li><a href="/rooms">Quartos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="padding-bottom: 30px;">
+    <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 6"></button>
+        </div>
+        <div class="col-md-12 d-flex" style="max-height: 700px; margin-top: 40px; ">
+            <div class="col" style="width: 980px;">
+                <div class="carousel-inner">
+                    <% images.forEach( image=>{ %>
+                    <div class="carousel-item active">
+                        <img src= <%=`/images/${image.filename}`%> class="image" alt="./images/image1.jpeg">
+                    </div>
+                    <% }) %>
+
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"  aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="col-md-12 d-flex" style="flex-wrap: wrap;" >
+        <h1 class="w-100 text-center my-4" ><%= room.name %></h1>
+
+        <div class="w-100 my-2">
+            <h3 class="description-room">
+                Descrição
+            </h3>
+    
+        </div>
+
+        <div class="w-100 my-2" >
+            <p class="description-room" style="white-space: pre-line;margin-top: -20px;" >
+                <%= room.description%>
+            </p>
+        </div>
+        
+        <div class="w-100 my-2">
+            <h3 class="description-room">
+                Preços:
+            </h3>
+        </div>
+
+        <div class="w-100 my-1">
+            <h5 class="description-room"  style="white-space: pre-line;margin-top: -20px;">
+                <%= room.prices %>
+            </h5>
+        </div>
+
+        <div class="w-100 my-2">
+            <div class=" description-link">
+                <a 
+                href=<%=`https://wa.me/+351919069623?text=Ola%20gostaria%20de%20saber%20mais%20informações%20acerca%20do%20${room.name}`%>
+                class="btn btn-success my-2">
+                    Reservar
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+    </section>
+</body>
+
+<script src="../../js/menu.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</html>

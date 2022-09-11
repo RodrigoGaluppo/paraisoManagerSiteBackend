@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <link rel="stylesheet" href="css/styledbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/rooms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/ico" href="./images/logo.ico"/>
+    <title>Hostel Paraiso da Penha</title>
+</head>
+
+<body>
+    <header>
+        <a href="#" id="logo"> <div class="logo-img" ></div> </a>
+        <nav id="nav" > 
+            <button id="btnMobile" >
+                <span id="hamburguer" ></span>
+            </button>
+            <ul id="menu" >
+                <li><a  href="#gallery">Home</a></li>
+                <li><a  href="#about">Sobre</a></li>
+                <li><a href="#contacts">Contacto</a></li>
+                <li><a href="/rooms">Quartos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="social">
+        <div class="networks">
+            <a href="https://www.facebook.com/hostelparaisodapenha" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/paraisodapenhahostel/" class="fa fa-instagram"></a>
+            <a href="https://wa.me/+351919069623?text=Ola%20gostaria%20de%20saber%20mais%20informações" class="fa fa-whatsapp"></a>
+        </div>
+    </div>
+
+    <section class="main" > 
+
+        <div class="banner">
+            <div class="cta">
+                <h1 style="margin-top: 10px;;">Um Ótimo Hostel em Lisboa</h1>
+                <p style="margin-top: 10px;" >aberto todos os dias, pronto para te receber</p>
+                <a href="https://wa.me/+351919069623?text=Ola%20gostaria%20de%20saber%20mais%20informações">Entrar em Contacto</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="room" >
+        <h1 class="title" >Quartos Mais Buscados</h1>
+
+        <div  class="options">
+
+            <%
+                rooms.forEach((room,i)=>{
+            %>
+                
+            <div class="option">
+                <img src=<%= room.roomImageAddress %> alt="">
+                <h2><%= room._doc.name %></h2>
+                <p><%= room._doc.short_description %></p>
+
+                <div class="info" >
+    
+                    <a class="btn btn-success" href="/rooms/<%= room._doc._id %>">Ver Mais</a>
+                </div>
+                
+            </div>
+
+            <% }) %>
+
+
+        </div>
+
+    </main>
+
+    <div class="title" style="margin-bottom: 40px;" >
+        <h2>Sobre</h2>
+    </div>
+
+    <section class="info" > 
+        <div class="about" id="about" >
+            <h2>Quem Somos</h2>
+            <p>A sua casa em Portugal a um preço baixo, mas com a maior qualidade !!! Para sua segurança, trabalhamos apenas em quartos privativos.Temos a opção de banheiro privativo ou compartilhado.  
+            </p>
+            <p>Temos também uma cozinha completa e um espaço muito agrdável, localizados no coração da penha de frança, num ponto de fácil acesso</p>
+           <p> Venha Experimentar Nossos Quartos! </p>
+            
+        </div>
+
+        <div class="location">
+            <div id="map" class="map">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    
+
+    <section class="more-info" id="contacts">
+        <div class="title" >
+            <h2>Mais Informações</h2>
+        </div>
+
+        <div class="contacts">
+            <h3>Contactos</h3>
+
+            <div class="contact">
+                <a href="tel:+351919069623">Telemóvel +351919069623</a>
+                
+            </div>
+        </div>
+
+        <div class="schedule">
+            <h3>Horarios</h3>
+
+            <p>Todos os dias das 08:00 as 00:00</p>
+    
+        </div>
+
+    </section>
+    
+
+<script src="./js/menu.js"></script>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3rEbIsf2lU5VsZPjXVQU_ANqAwU5PS3w&libraries=places&callback=initMap">
+</script>
+
+<script>
+// Initialize and add the map
+var map;
+var service;
+var infowindow;
+
+function initMap() {
+  var Arena = new google.maps.LatLng(38.728990, -9.128870 );
+  var mapOptions = {
+    zoom: 19,
+    center: Arena,
+    styles: [
+      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{ color: "#263c3f" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#6b9a76" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#38414e" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#212a37" }],
+      },
+      {
+        featureType: "road",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#9ca5b3" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{ color: "#746855" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#1f2835" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#f3d19c" }],
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{ color: "#2f3948" }],
+      },
+      {
+        featureType: "transit.station",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{ color: "#17263c" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#515c6d" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{ color: "#17263c" }],
+      },
+    ],
+    }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: Arena,
+        title:"Arena Espeteria"
+    });
+
+    // To add the marker to the map, call setMap();
+    marker.setMap(map);
+}
+</script>
+
+
+</body>
+</html>
